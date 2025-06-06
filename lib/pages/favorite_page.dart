@@ -51,7 +51,7 @@ class _FavoritePageState extends State<FavoritePage> {
       setState(() {
         isLoading = true;
       });
-      await _endemikService.hapusSemuaFavorit(); // Pastikan ada fungsi ini di service
+      await _endemikService.hapusSemuaFavorit();
       _getFavoritData();
     }
   }
