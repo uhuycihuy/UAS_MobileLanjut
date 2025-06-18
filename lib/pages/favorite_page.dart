@@ -63,6 +63,7 @@ class _FavoritePageState extends State<FavoritePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Daftar Favorit'),
+        centerTitle: true,
         backgroundColor: Colors.green,
       ),
       body: isLoading
@@ -92,7 +93,6 @@ class _FavoritePageState extends State<FavoritePage> {
                   'a_status': item.status,
                 },
               ).then((_) {
-                // Reload data favorite saat kembali
                 setState(() {
                   isLoading = true;
                 });
@@ -148,7 +148,7 @@ class _FavoritePageState extends State<FavoritePage> {
         onPressed: _hapusSemuaFavorit,
         icon: const Icon(Icons.delete),
         label: const Text('Hapus'),
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.green,
       )
           : null,
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,

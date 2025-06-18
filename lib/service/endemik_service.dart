@@ -2,12 +2,6 @@ import 'package:dio/dio.dart';
 import '../model/endemik.dart';
 import '../helper/database_helper.dart';
 
-/*
-  service ini dibentuk karena prosesnya yang akan memblokir memory UI
-  sehingga perlu dipisah untuk tiap proses "mengambil data"
-  yang pastinya membutuhkan waktu lama
-*/
-
 class EndemikService {
   final Dio _dio = Dio();
 
@@ -21,7 +15,6 @@ class EndemikService {
     final dbHelper = DatabaseHelper();
 
     try {
-      // Cek apakah data sudah ada di database
       bool dataExists = await isDataAvailable();
       if (dataExists) {
         print("Data sudah ada di database, tidak perlu mengambil dari API.");
@@ -29,7 +22,6 @@ class EndemikService {
         return oldData;
       }
 
-      // jika belum, maka tarik dari API
       final response = await _dio
           .get('https://hendroprwk08.github.io/data_endemik/endemik.json');
       final List<dynamic> data = response.data;
@@ -43,7 +35,7 @@ class EndemikService {
             asal: json["asal"],
             foto: json["foto"],
             status: json["status"],
-            is_favorit: "false" ); // masuk sebagai string
+            is_favorit: "false" );
 
         await dbHelper.insert(model);
       }

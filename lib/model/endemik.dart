@@ -6,7 +6,7 @@ class Endemik {
   final String asal;
   final String foto;
   final String status;
-  final String is_favorit; // disimpan sebagai string "true" atau "false"
+  final String is_favorit;
 
   Endemik({
     required this.id,
@@ -19,7 +19,6 @@ class Endemik {
     required this.is_favorit,
   });
 
-  // Untuk konversi dari JSON (API)
   factory Endemik.fromJson(Map<String, dynamic> json) {
     return Endemik(
       id: json['id'],
@@ -29,11 +28,10 @@ class Endemik {
       asal: json['asal'],
       foto: json['foto'],
       status: json['status'],
-      is_favorit: json['is_favorit'] ?? "false", // default "false" jika tidak ada
+      is_favorit: json['is_favorit'] ?? "false",
     );
   }
 
-  // Untuk konversi dari Map (database)
   factory Endemik.fromMap(Map<String, dynamic> map) {
     return Endemik(
       id: map['id'],
@@ -47,7 +45,6 @@ class Endemik {
     );
   }
 
-  // Untuk menyimpan ke database
   Map<String, dynamic> toMap() {
     return {
       'id': id,

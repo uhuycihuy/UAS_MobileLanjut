@@ -34,7 +34,8 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Daftar Flora Endemik'),
+        title: const Text('Endemik DB'),
+        centerTitle: true,
         backgroundColor: Colors.green,
       ),
       body: isLoading

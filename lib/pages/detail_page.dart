@@ -35,7 +35,6 @@ class _DetailPageState extends State<DetailPage> {
       isFavorite = !isFavorite;
     });
 
-    // Update di database
     await dbHelper.setFavorit(args['a_id'], isFavorite ? "true" : "false");
   }
 
@@ -44,6 +43,7 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail Flora Endemik'),
+        centerTitle: true,
         backgroundColor: Colors.green,
       ),
       body: SingleChildScrollView(
@@ -59,7 +59,7 @@ class _DetailPageState extends State<DetailPage> {
                 );
               },
               child: Hero(
-                tag: args['a_tag'],
+                tag: args['a_foto'],
                 child: Image.network(
                   args['a_foto'],
                   height: 250,

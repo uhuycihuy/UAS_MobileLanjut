@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-// Import halaman-halamanmu
 import '/pages/home_page.dart';
 import '/pages/detail_page.dart';
 import '/pages/detail_gambar.dart';
@@ -16,7 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flora Endemik App',
+      title: 'Endemik DB',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
